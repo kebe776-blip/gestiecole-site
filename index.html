@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GestiEcole v1.0.0 — Logiciel de gestion pour les écoles élémentaires du Sénégal</title>
+  <meta name="description" content="GestiEcole v1.0.0 : logiciel de gestion scolaire pour les écoles élémentaires du Sénégal (CI à CM2). Élèves, classes, enseignants, notes, présences, paiements et bulletins conformes au modèle IA/IEF. Application Windows, données 100 % locales.">
+  <meta name="keywords" content="GestiEcole, gestion scolaire, Sénégal, école élémentaire, CI, CM2, bulletins, notes, IA, IEF, logiciel école">
+  <meta name="author" content="GestiEcole">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_SN">
+  <meta property="og:site_name" content="GestiEcole">
+  <meta property="og:title" content="GestiEcole v1.0.0 — La gestion de votre école élémentaire, simplement">
+  <meta property="og:description" content="Élèves, classes, enseignants, évaluations, présences, paiements et bulletins conformes au modèle IA/IEF. Application Windows, données locales.">
+  <meta property="og:url" content="https://github.com/kebe776-blip/gestion_ecole">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GestiEcole v1.0.0 — Gestion scolaire pour le Sénégal">
+  <meta name="twitter:description" content="Logiciel de gestion pour écoles élémentaires (CI à CM2), conforme IA/IEF. Windows, données locales.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f2a4a'/%3E%3Cpath d='M8 9h7.5a3.5 3.5 0 0 1 3.5 3.5V23a3 3 0 0 0-3-3H8V9z' fill='%232563eb'/%3E%3Cpath d='M24 9h-5a3 3 0 0 0-3 3v11a3.5 3.5 0 0 1 3.5-3.5H24V9z' fill='%2314b8a6'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar" id="haut">
+    <div class="conteneur navbar-inner">
+      <a class="logo" href="#haut" aria-label="GestiEcole — retour en haut de page">
+        <svg class="logo-icone" viewBox="0 0 32 32" width="34" height="34" aria-hidden="true" focusable="false">
+          <rect width="32" height="32" rx="7" fill="#0f2a4a"/>
+          <path d="M8 9h7.5a3.5 3.5 0 0 1 3.5 3.5V23a3 3 0 0 0-3-3H8V9z" fill="#2563eb"/>
+          <path d="M24 9h-5a3 3 0 0 0-3 3v11a3.5 3.5 0 0 1 3.5-3.5H24V9z" fill="#14b8a6"/>
+        </svg>
+        <span class="logo-texte">Gesti<strong>Ecole</strong></span>
+      </a>
+
+      <button class="nav-burger" id="btn-menu" aria-expanded="false" aria-controls="nav-liens" aria-label="Ouvrir le menu de navigation">
+        <span class="burger-barre" aria-hidden="true"></span>
+        <span class="burger-barre" aria-hidden="true"></span>
+        <span class="burger-barre" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <ul class="nav-liens" id="nav-liens">
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#systeme">Le système sénégalais</a></li>
+          <li><a href="#installation">Installation</a></li>
+          <li><a href="#telechargement">Téléchargement</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="btn btn-petit btn-accent nav-cta" href="#telechargement">Télécharger</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="titre-hero">
+      <div class="conteneur hero-grille">
+        <div class="hero-texte">
+          <p class="badge-version">
+            <span class="pastille" aria-hidden="true"></span>
+            Version 1.0.0 · Windows · Logiciel de bureau
+          </p>
+          <h1 id="titre-hero">La gestion de votre école élémentaire, <span class="accent">simplement</span></h1>
+          <p class="hero-chapo">
+            <strong>GestiEcole</strong> est un logiciel de gestion scolaire conçu pour les
+            <strong>écoles élémentaires du Sénégal</strong> — du Cours d’Initiation (CI) au CM2.
+            Élèves, classes, enseignants, évaluations, présences, paiements et bulletins&nbsp;:
+            tout est réuni dans une application Windows unique, <strong>conforme au modèle
+            de l’Inspection Académique (IA) et de l’Inspection de l’Éducation et de la Formation (IEF)</strong>.
+          </p>
+          <p class="hero-chapo">
+            Vos données restent <strong>sur votre ordinateur</strong>, dans une base locale.
+            Aucune donnée scolaire n’est envoyée sur Internet.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-grand btn-accent"
+               href="https://github.com/kebe776-blip/gestion_ecole/releases/download/gestionecole-v1.0.0/GESTION.ECOLE_1.0.0_x64-setup.exe"
+               download>
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" class="btn-icone">
+                <path d="M12 3v10m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+              Télécharger GestiEcole
+            </a>
+            <a class="btn btn-grand btn-fantome" href="#fonctionnalites">Découvrir les modules</a>
+          </div>
+
+          <ul class="hero-fiches" aria-label="Informations sur le téléchargement">
+            <li><span class="fiche-cle">Version</span> <span class="fiche-val">1.0.0</span></li>
+            <li><span class="fiche-cle">Plateforme</span> <span class="fiche-val">Windows</span></li>
+            <li><span class="fiche-cle">Format</span> <span class="fiche-val">EXE (installateur)</span></li>
+            <li><span class="fiche-cle">Données</span> <span class="fiche-val">Locales · hors ligne</span></li>
+          </ul>
+        </div>
+
+        <!-- Captures réelles de l'application (carrousel en fondu) -->
+        <div class="hero-illu carrousel" data-carrousel role="region"
+             aria-roledescription="carrousel" aria-label="Captures d’écran de GestiEcole">
+          <div class="carrousel-vues">
+            <img class="carrousel-img carrousel-actif" src="assets/captures/01-tableau-de-bord.png"
+                 alt="Tableau de bord GestiEcole : effectifs, répartition par niveau et présence du jour"
+                 width="1120" height="700" loading="eager" fetchpriority="high" data-legende="Tableau de bord">
+            <img class="carrousel-img" src="assets/captures/02-classes.png"
+                 alt="Page Classes : liste des classes avec types et enseignants affectés"
+                 width="1120" height="700" loading="lazy" data-legende="Classes">
+            <img class="carrousel-img" src="assets/captures/03-eleves.png"
+                 alt="Page Élèves : liste des fiches d’élèves avec photo et situation"
+                 width="1120" height="700" loading="lazy" data-legende="Élèves">
+            <img class="carrousel-img" src="assets/captures/04-enseignants.png"
+                 alt="Page Enseignants : fiches enseignants et affectations aux classes"
+                 width="1120" height="700" loading="lazy" data-legende="Enseignants">
+            <img class="carrousel-img" src="assets/captures/05-evaluations.png"
+                 alt="Page Évaluations : notes des élèves par matière et par trimestre"
+                 width="1120" height="700" loading="lazy" data-legende="Évaluations &amp; notes">
+            <img class="carrousel-img" src="assets/captures/06-presences.png"
+                 alt="Page Présences : registre d’appel avec présences, absences et retards"
+                 width="1120" height="700" loading="lazy" data-legende="Présences">
+            <img class="carrousel-img" src="assets/captures/07-bulletins.png"
+                 alt="Aperçu d’un bulletin scolaire trimestriel conforme aux exigences de l’IA/IEF"
+                 width="1120" height="700" loading="lazy" data-legende="Bulletins">
+            <img class="carrousel-img" src="assets/captures/08-parametres.png"
+                 alt="Page Paramètres : configuration de l’école, de l’année scolaire et de l’identification"
+                 width="1120" height="700" loading="lazy" data-legende="Paramètres">
+          </div>
+          <div class="carrousel-pied">
+            <p class="carrousel-legende">
+              <span data-legende-texte>Tableau de bord</span>
+              <span class="carrousel-compteur" aria-hidden="true">1 / 8</span>
+            </p>
+            <div class="carrousel-puces" role="group" aria-label="Choisir une capture">
+              <button type="button" class="puce carrousel-actif" data-index="0"
+                      aria-label="Afficher : Tableau de bord" aria-current="true"></button>
+              <button type="button" class="puce" data-index="1" aria-label="Afficher : Classes"></button>
+              <button type="button" class="puce" data-index="2" aria-label="Afficher : Élèves"></button>
+              <button type="button" class="puce" data-index="3" aria-label="Afficher : Enseignants"></button>
+              <button type="button" class="puce" data-index="4" aria-label="Afficher : Évaluations et notes"></button>
+              <button type="button" class="puce" data-index="5" aria-label="Afficher : Présences"></button>
+              <button type="button" class="puce" data-index="6" aria-label="Afficher : Bulletins"></button>
+              <button type="button" class="puce" data-index="7" aria-label="Afficher : Paramètres"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BANDEAU CONFIANCE ================= -->
+    <section class="bandeau" aria-label="Points forts">
+      <div class="conteneur bandeau-grille">
+        <div class="bandeau-objet">
+          <strong>9 modules</strong>
+          <span>Tableau de bord aux paramètres</span>
+        </div>
+        <div class="bandeau-objet">
+          <strong>Conforme IA / IEF</strong>
+          <span>Modèle officiel sénégalais</span>
+        </div>
+        <div class="bandeau-objet">
+          <strong>Données locales</strong>
+          <span>Base sur votre ordinateur</span>
+        </div>
+        <div class="bandeau-objet">
+          <strong>Windows</strong>
+          <span>Installateur EXE 64 bits</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FONCTIONNALITÉS ================= -->
+    <section class="section" id="fonctionnalites" aria-labelledby="titre-fonctions">
+      <div class="conteneur">
+        <header class="section-tete">
+          <p class="section-sur-titre">Fonctionnalités</p>
+          <h2 id="titre-fonctions">Tout ce dont votre école a besoin, en un seul logiciel</h2>
+          <p class="section-chapo">
+            GestiEcole regroupe les neuf modules essentiels de la vie scolaire, pensés pour
+            le fonctionnement réel des écoles élémentaires du Sénégal.
+          </p>
+        </header>
+
+        <div class="cartes-grille">
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-bleu" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 13h6V4H4v9zm0 7h6v-5H4v5zm10 0h6v-9h-6v9zm0-16v5h6V4h-6z" fill="currentColor"/></svg>
+            </div>
+            <h3>Tableau de bord</h3>
+            <p>Statistiques dynamiques en un coup d’œil&nbsp;: effectifs filles/garçons, répartition par niveau, remplissage des classes, présence du jour et avancement de la saisie des notes par trimestre.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-turq" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm1 4v2h12V7H6zm0 4v2h12v-2H6zm0 4v2h8v-2H6z" fill="currentColor"/></svg>
+            </div>
+            <h3>Classes</h3>
+            <p>Création et gestion des classes avec type (Simple, CMG, CDF), effectif réel face à la capacité, affectation des enseignants avec rôle principal, duplication rapide et ligne de total.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-bleu" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z" fill="currentColor"/></svg>
+            </div>
+            <h3>Élèves</h3>
+            <p>Fiches complètes&nbsp;: état civil, scolarité, situation (passant, redoublant, transfert, abandon…), parents, adresse et photo d’identité — utilisée pour les trombinos des bulletins. Recherche en temps réel et filtres par niveau ou classe.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-turq" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l9 5-9 5-9-5 9-5zm-7 9.5l7 3.9 7-3.9V17l-7 4-7-4v-4.5z" fill="currentColor"/></svg>
+            </div>
+            <h3>Enseignants</h3>
+            <p>Plus de 30 informations par enseignant&nbsp;: état civil, carrière, affectation, situation personnelle, formation et diplômes, coordonnées. Affectation possible à plusieurs classes.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-bleu" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M5 3h14v18H5V3zm2 4v2h10V7H7zm0 4v2h10v-2H7zm0 4v2h6v-2H7z" fill="currentColor"/></svg>
+            </div>
+            <h3>Évaluations &amp; notes</h3>
+            <p>Matières configurées par niveau et trimestre avec coefficients de pondération. Grille élèves × matières, moyennes pondérées ramenées sur 10, rangs par classe, sauvegarde automatique, navigation clavier complète, copie depuis un autre trimestre et export CSV.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-turq" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M9 11.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm6 0a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM9 13c-2.7 0-6 1.3-6 4v2h8v-2c0-1.3.6-2.4 1.6-3.2A13 13 0 0 0 9 13zm6 0c-.6 0-1.3.1-2 .2 1.2.9 2 2.1 2 3.8v2h6v-2c0-2.7-3.3-4-6-4z" fill="currentColor"/></svg>
+            </div>
+            <h3>Présences</h3>
+            <p>Saisie quotidienne Présent / Absent / Retard avec motif optionnel, sans doublons, filtres par date, niveau et classe, et génération du <strong>registre d’appel mensuel</strong> en PDF.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-bleu" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3h8v1.5H8V15zm0 3h5v1.5H8V18z" fill="currentColor"/></svg>
+            </div>
+            <h3>Bulletins &amp; documents</h3>
+            <p>Génération PDF des documents officiels&nbsp;: liste nominative, fiche synoptique et <strong>bulletins trimestriels</strong> (photo d’identité, notes par matière, coefficients, moyenne sur 10, rang, mention, appréciation, signatures) conformes aux standards IA/IEF. Export Excel des listes nominatives inclus.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-turq" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 6h18v12H3V6zm2 2v2h14V8H5zm0 4v4h6v-4H5zm8 1h6v2h-6v-2z" fill="currentColor"/></svg>
+            </div>
+            <h3>Paiements</h3>
+            <p>Suivi des inscription, scolarité mensuelle (avec mois concerné), cantine et autres frais. Filtres par élève, type et niveau, totaux par type et ligne de total.</p>
+          </article>
+
+          <article class="carte">
+            <div class="carte-icone carte-icone-bleu" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-7 11v-1c0-2.7 3.6-4 7-4s7 1.3 7 4v1H5zm14-4.6A3.4 3.4 0 0 0 17 11a3 3 0 1 0-3-3 3.4 3.4 0 0 0-2 1.4" fill="currentColor"/></svg>
+            </div>
+            <h3>Paramètres</h3>
+            <p>Identification administrative de l’établissement&nbsp;: Inspection Académique, IEF, district, codec, année scolaire, chef d’établissement, inspecteurs et adresse — reprises automatiquement sur les documents PDF. Possibilité de définir un mot de passe d’accès.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SYSTÈME SÉNÉGALAIS ================= -->
+    <section class="section section-alt" id="systeme" aria-labelledby="titre-systeme">
+      <div class="conteneur">
+        <header class="section-tete">
+          <p class="section-sur-titre">Pensé pour le terrain</p>
+          <h2 id="titre-systeme">Conforme au système éducatif sénégalais</h2>
+          <p class="section-chapo">
+            GestiEcole ne force pas votre école à changer ses méthodes&nbsp;: il suit le modèle
+            officiel de l’Inspection Académique et de l’IEF.
+          </p>
+        </header>
+
+        <div class="points-grille">
+          <div class="point">
+            <span class="point-num" aria-hidden="true">01</span>
+            <h3>Niveaux du CI au CM2</h3>
+            <p>Cours d’Initiation, CP, CE1, CE2, CM1, CM2 — avec trois trimestres par année scolaire.</p>
+          </div>
+          <div class="point">
+            <span class="point-num" aria-hidden="true">02</span>
+            <h3>Moyennes sur 10, pondérées</h3>
+            <p>Note maximale configurable par matière, coefficients modulables, moyennes ramenées sur 10 comme le veut la norme élémentaire.</p>
+          </div>
+          <div class="point">
+            <span class="point-num" aria-hidden="true">03</span>
+            <h3>Mentions automatiques</h3>
+            <p>Excellent à partir de 8,5 · Très Bien 7,5 · Bien 6,5 · Assez Bien 5,5 · Passable 5 · Insuffisant en dessous — calculées sur le bulletin.</p>
+          </div>
+          <div class="point">
+            <span class="point-num" aria-hidden="true">04</span>
+            <h3>Documents aux normes</h3>
+            <p>Les PDF reprennent les informations des Paramètres (IA, IEF, chef d’établissement, année scolaire) pour rester conformes au modèle officiel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INSTALLATION ================= -->
+    <section class="section" id="installation" aria-labelledby="titre-install">
+      <div class="conteneur">
+        <header class="section-tete">
+          <p class="section-sur-titre">Installation</p>
+          <h2 id="titre-install">Opérationnel en quatre étapes</h2>
+          <p class="section-chapo">
+            Aucune compétence technique n’est requise. L’installation prend quelques minutes
+            sur n’importe quel ordinateur Windows 64 bits.
+          </p>
+        </header>
+
+        <ol class="etapes">
+          <li class="etape">
+            <span class="etape-num">1</span>
+            <div>
+              <h3>Télécharger l’installateur</h3>
+              <p>Cliquez sur «&nbsp;Télécharger GestiEcole&nbsp;». Le fichier <code>GESTION.ECOLE_1.0.0_x64-setup.exe</code> (environ 66&nbsp;Mo) est enregistré sur votre ordinateur.</p>
+            </div>
+          </li>
+          <li class="etape">
+            <span class="etape-num">2</span>
+            <div>
+              <h3>Lancer l’installation</h3>
+              <p>Double-cliquez sur le fichier téléchargé et suivez l’assistant. L’application s’installe pour l’utilisateur courant, sans droits administrateur.</p>
+            </div>
+          </li>
+          <li class="etape">
+            <span class="etape-num">3</span>
+            <div>
+              <h3>Démarrer GestiEcole</h3>
+              <p>Un raccourci est créé sur le bureau. Au premier lancement, saisissez les informations administratives de votre établissement dans les Paramètres (IA, IEF, année scolaire…).</p>
+            </div>
+          </li>
+          <li class="etape">
+            <span class="etape-num">4</span>
+            <div>
+              <h3>Activer votre licence</h3>
+              <p>GestiEcole utilise un système de licence par poste. Lors du premier démarrage, l’assistant vous guide pour l’activation. Un guide utilisateur PDF est fourni avec l’application.</p>
+            </div>
+          </li>
+        </ol>
+
+        <aside class="encadre" role="note">
+          <h3>Bon à savoir</h3>
+          <ul>
+            <li>Vos données sont enregistrées <strong>localement</strong> sur l’ordinateur, avec une <strong>sauvegarde automatique quotidienne</strong> (rétention 30 jours).</li>
+            <li>En cas de mot de passe oublié, un système de <strong>récupération par clé temporaire</strong> est prévu avec votre inspecteur / administrateur.</li>
+            <li>GestiEcole fonctionne <strong>hors connexion Internet</strong> une fois installée et activée (licence révalidée périodiquement).</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= TÉLÉCHARGEMENT ================= -->
+    <section class="section section-telechargement" id="telechargement" aria-labelledby="titre-telech">
+      <div class="conteneur telech-bloc">
+        <header class="section-tete section-tete-clair">
+          <p class="section-sur-titre">Téléchargement officiel</p>
+          <h2 id="titre-telech">Obtenir GestiEcole v1.0.0</h2>
+          <p class="section-chapo">
+            Téléchargez l’installateur officiel de la version 1.0.0 pour Windows (64 bits).
+          </p>
+        </header>
+
+        <div class="telech-carte">
+          <div class="telech-infos" role="list">
+            <div class="telech-info" role="listitem"><span class="telech-cle">Logiciel</span><span class="telech-val">GestiEcole</span></div>
+            <div class="telech-info" role="listitem"><span class="telech-cle">Version</span><span class="telech-val">1.0.0</span></div>
+            <div class="telech-info" role="listitem"><span class="telech-cle">Plateforme</span><span class="telech-val">Windows 64 bits</span></div>
+            <div class="telech-info" role="listitem"><span class="telech-cle">Format</span><span class="telech-val">EXE — installateur NSIS</span></div>
+            <div class="telech-info" role="listitem"><span class="telech-cle">Taille</span><span class="telech-val">≈ 66 Mo</span></div>
+          </div>
+
+          <a class="btn btn-grand btn-accent btn-pleine-largeur"
+             href="https://github.com/kebe776-blip/gestion_ecole/releases/download/gestionecole-v1.0.0/GESTION.ECOLE_1.0.0_x64-setup.exe"
+             download>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" class="btn-icone">
+              <path d="M12 3v10m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            Télécharger GestiEcole v1.0.0
+          </a>
+
+          <p class="telech-empreinte">
+            Empreinte SHA-256 de l’installateur officiel&nbsp;:
+            <code class="empreinte">4993250D849260714F9CFCEA6AC157982BBF0FE6D698621D7CC183D0AD844182</code>
+          </p>
+          <p class="telech-note">
+            Vous pouvez vérifier l’intégrité du fichier téléchargé avec la commande PowerShell&nbsp;:
+            <code>Get-FileHash .\GESTION.ECOLE_1.0.0_x64-setup.exe -Algorithm SHA256</code>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section" id="faq" aria-labelledby="titre-faq">
+      <div class="conteneur conteneur-etroit">
+        <header class="section-tete">
+          <p class="section-sur-titre">Questions fréquentes</p>
+          <h2 id="titre-faq">Vous vous demandez peut-être…</h2>
+        </header>
+
+        <div class="faq-liste">
+
+          <details class="faq-item">
+            <summary>GestiEcole fonctionne-t-il sur Mac, Android ou Linux&nbsp;?</summary>
+            <p>Non. GestiEcole v1.0.0 est un logiciel de bureau pour <strong>Windows 64 bits</strong> uniquement. Aucune version pour les autres plateformes n’est disponible à ce jour.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Mes données sont-elles envoyées sur Internet&nbsp;?</summary>
+            <p>Non. Toutes vos données scolaires (élèves, notes, présences, paiements…) sont enregistrées dans une <strong>base locale</strong> sur votre ordinateur. L’application fonctionne hors connexion ; seule la validation périodique de la licence nécessite Internet.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Une licence est-elle nécessaire&nbsp;?</summary>
+            <p>Oui. GestiEcole utilise un système de licence par poste, avec signature cryptographique. L’assistant de premier démarrage vous accompagne pour l’activation de votre poste.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Puis-je perdre mes données en cas de problème&nbsp;?</summary>
+            <p>GestiEcole effectue une <strong>sauvegarde automatique quotidienne</strong> de la base (entre 22 h et 23 h, avec une rétention de 30 jours). Nous recommandons néanmoins de sauvegarder régulièrement le dossier de données sur un support externe.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Les bulletins sont-ils conformes au modèle officiel&nbsp;?</summary>
+            <p>Oui. Les documents PDF (bulletins trimestriels, listes nominatives, fiches synoptiques, registre d’appel) reprennent les informations administratives saisies dans les Paramètres — IA, IEF, chef d’établissement, année scolaire — et suivent le modèle de l’Inspection Académique, avec moyennes sur 10 et mentions automatiques.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Un guide d’utilisation est-il fourni&nbsp;?</summary>
+            <p>Oui. Un <strong>guide utilisateur PDF</strong> est fourni avec la version 1.0.0. Il détaille chaque module, de l’installation aux bulletins.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quels sont les prérequis minimums&nbsp;?</summary>
+            <p>Un ordinateur <strong>Windows 64 bits</strong> relativement récent (Windows 10 ou supérieur recommandé), quelques centaines de mégaoctets d’espace disque et une connexion Internet pour l’activation de la licence. Aucun serveur ni base de données à installer : tout est inclus.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= APPEL FINAL ================= -->
+    <section class="section section-finale" aria-label="Téléchargement final">
+      <div class="conteneur finale-bloc">
+        <h2>Prêt à simplifier la gestion de votre école&nbsp;?</h2>
+        <p>Téléchargez GestiEcole v1.0.0 et configurez votre établissement en quelques minutes.</p>
+        <a class="btn btn-grand btn-accent"
+           href="https://github.com/kebe776-blip/gestion_ecole/releases/download/gestionecole-v1.0.0/GESTION.ECOLE_1.0.0_x64-setup.exe"
+           download>
+          Télécharger pour Windows
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIED DE PAGE ================= -->
+  <footer class="pied">
+    <div class="conteneur pied-grille">
+      <div class="pied-marque">
+        <a class="logo logo-clair" href="#haut" aria-label="GestiEcole — retour en haut de page">
+          <svg class="logo-icone" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">
+            <rect width="32" height="32" rx="7" fill="#1b3a63"/>
+            <path d="M8 9h7.5a3.5 3.5 0 0 1 3.5 3.5V23a3 3 0 0 0-3-3H8V9z" fill="#3b82f6"/>
+            <path d="M24 9h-5a3 3 0 0 0-3 3v11a3.5 3.5 0 0 1 3.5-3.5H24V9z" fill="#2dd4bf"/>
+          </svg>
+          <span class="logo-texte">Gesti<strong>Ecole</strong></span>
+        </a>
+        <p>Logiciel de gestion pour les écoles élémentaires du Sénégal — du CI au CM2. Conforme au modèle IA / IEF.</p>
+      </div>
+
+      <nav class="pied-colonne" aria-label="Liens du pied de page">
+        <h3>Le logiciel</h3>
+        <ul>
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#installation">Installation</a></li>
+          <li><a href="#telechargement">Téléchargement v1.0.0</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="conteneur pied-bas">
+      <p>© <span id="annee">2026</span> GestiEcole — Tous droits réservés.</p>
+      <p class="pied-mention">Application de bureau Windows · Données locales · v1.0.0</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
