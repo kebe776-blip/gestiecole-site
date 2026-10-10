@@ -133,6 +133,26 @@
       if (!carrousel.contains(e.relatedTarget)) { demarrer(); }
     });
 
+    /* Balayage au doigt (tactile) : gauche = suivant, droite = précédent */
+    var touchX = null;
+    carrousel.addEventListener("touchstart", function (e) {
+      touchX = e.touches[0].clientX;
+      arreter(); /* pause pendant le geste */
+    }, { passive: true });
+    carrousel.addEventListener("touchend", function (e) {
+      if (touchX === null) { return; }
+      var dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 40) { /* seuil anti-micro-mouvement */
+        afficher(dx < 0 ? idx + 1 : idx - 1);
+      }
+      demarrer(); /* reprise après le geste */
+    }, { passive: true });
+    carrousel.addEventListener("touchcancel", function () {
+      touchX = null;
+      demarrer();
+    }, { passive: true });
+
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) { arreter(); } else { demarrer(); }
     });

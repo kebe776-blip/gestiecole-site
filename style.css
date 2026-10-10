@@ -50,6 +50,7 @@ body {
   background: var(--blanc);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip; /* coupe tout scroll horizontal résiduel sans casser la navbar sticky */
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -728,6 +729,18 @@ code {
   .pied-grille { grid-template-columns: 1fr; }
   .pied-bas { justify-content: center; text-align: center; }
   .etape { flex-direction: column; gap: 0.7rem; }
+
+  /* Carrousel : légende au-dessus des points, centrés (évite le débordement) */
+  .carrousel-pied {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    text-align: center;
+  }
+  .carrousel-puces { margin: -14px 0 -16px; }
+
+  /* Hero plus compact au-dessus de la ligne de flottaison */
+  .hero { padding: 2.2rem 0 2.8rem; }
 }
 
 @media (max-width: 400px) {
@@ -736,6 +749,10 @@ code {
   .telech-val { text-align: left; }
   .btn { padding-left: 1.1rem; padding-right: 1.1rem; font-size: 0.94rem; }
   .hero-fiches { gap: 0.5rem 1rem; }
+
+  /* Puces du carrousel : 8 × 36 px = 288 px → tient même sur écran 320 px
+     (hauteur 44 px conservée pour la cible tactile) */
+  .puce { width: 36px; }
 }
 
 /* ---------- Accessibilité : animations réduites ---------- */
