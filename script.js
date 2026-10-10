@@ -78,4 +78,66 @@
   if (annee) {
     annee.textContent = String(new Date().getFullYear());
   }
+
+  /* ---------- Carrousel de captures (hero, fondu) ---------- */
+  var carrousel = document.querySelector("[data-carrousel]");
+  if (carrousel) {
+    var imgs = carrousel.querySelectorAll(".carrousel-img");
+    var puces = carrousel.querySelectorAll(".puce");
+    var texteLegende = carrousel.querySelector("[data-legende-texte]");
+    var compteur = carrousel.querySelector(".carrousel-compteur");
+    var reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var idx = 0;
+    var timer = null;
+
+    var afficher = function (i) {
+      idx = (i + imgs.length) % imgs.length;
+      imgs.forEach(function (img, k) {
+        img.classList.toggle("carrousel-actif", k === idx);
+      });
+      puces.forEach(function (p, k) {
+        var actif = k === idx;
+        p.classList.toggle("carrousel-actif", actif);
+        if (actif) {
+          p.setAttribute("aria-current", "true");
+        } else {
+          p.removeAttribute("aria-current");
+        }
+      });
+      if (texteLegende) {
+        texteLegende.textContent = imgs[idx].getAttribute("data-legende") || "";
+      }
+      if (compteur) {
+        compteur.textContent = (idx + 1) + " / " + imgs.length;
+      }
+    };
+
+    var demarrer = function () {
+      if (reduit || timer) { return; }
+      timer = setInterval(function () { afficher(idx + 1); }, 4500);
+    };
+    var arreter = function () {
+      if (timer) { clearInterval(timer); timer = null; }
+    };
+
+    puces.forEach(function (p) {
+      p.addEventListener("click", function () {
+        afficher(parseInt(p.getAttribute("data-index"), 10));
+      });
+    });
+
+    carrousel.addEventListener("mouseenter", arreter);
+    carrousel.addEventListener("mouseleave", demarrer);
+    carrousel.addEventListener("focusin", arreter);
+    carrousel.addEventListener("focusout", function (e) {
+      if (!carrousel.contains(e.relatedTarget)) { demarrer(); }
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { arreter(); } else { demarrer(); }
+    });
+
+    afficher(0);
+    demarrer();
+  }
 })();
